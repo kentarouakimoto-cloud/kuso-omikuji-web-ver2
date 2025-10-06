@@ -40,7 +40,7 @@ with col1:
             tip = random.choice(TIPS) if random.random() < 0.6 else ""
             score = random.randint(-100, 100)
             ts = datetime.now().isoformat(sep=" ", timespec="seconds")
-            display = f"**{fortune}**\n\n{tip}\n\n**不運度:** {score}\n\n（{ts}）"
+            display = f"**{fortune}**\n\n{tip}\n\n**幸福度:** {score}\n\n（{ts}）"
             st.markdown(display)
             st.session_state["last_result"] = {
                 "name": name,
