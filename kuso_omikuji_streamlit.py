@@ -54,7 +54,7 @@ with col2:
     st.write("SNS用テキスト")
     if "last_result" in st.session_state:
         lr = st.session_state["last_result"]
-        sns_text = f"【おみくじ】 {lr['fortune']} / {lr['tip'] or 'アドバイスなし'} （不運度 {lr['score']})"
+        sns_text = f"【おみくじ】 {lr['fortune']} / {lr['tip'] or 'アドバイスなし'} （幸福度 {lr['score']})"
         st.text_area("コピーして貼るだけ", value=sns_text, height=120)
     else:
         st.info("まずは『おみくじを引く』を押してね。")
