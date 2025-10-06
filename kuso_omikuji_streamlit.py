@@ -1,16 +1,16 @@
-# kuso_omikuji_streamlit.pyああ
+# kuso_omikuji_streamlit.py
 import streamlit as st
 import random
 import time
 from datetime import datetime
 
-st.set_page_config(page_title="🔮 クソおみくじ (Web)", layout="centered")
+st.set_page_config(page_title="🔮 おみくじ (Web)", layout="centered")
 
 FORTUNES = [
-    "超クソ大吉：宝くじ買うな（買っても当たらない）",
+    "超不運大吉：宝くじ買うな（買っても当たらない）",
     "微妙な中吉：メールの既読をつけ忘れる運",
     "普通の小吉：冷蔵庫に何かある気がするが無い",
-    "クソ凶：鍵を失くす可能性高め（予備の鍵を持たないで）",
+    "不運凶：鍵を失くす可能性高め（予備の鍵を持たないで）",
     "謎の半吉：明日の予定が何故か消える",
     "無限ループ吉：その問題は永遠に終わらない",
     "運命はあなた次第（という名の丸投げ）",
@@ -40,7 +40,7 @@ with col1:
             tip = random.choice(TIPS) if random.random() < 0.6 else ""
             score = random.randint(-100, 100)
             ts = datetime.now().isoformat(sep=" ", timespec="seconds")
-            display = f"**{fortune}**\n\n{tip}\n\n**クソ度:** {score}\n\n（{ts}）"
+            display = f"**{fortune}**\n\n{tip}\n\n**不運度:** {score}\n\n（{ts}）"
             st.markdown(display)
             st.session_state["last_result"] = {
                 "name": name,
@@ -54,7 +54,7 @@ with col2:
     st.write("SNS用テキスト")
     if "last_result" in st.session_state:
         lr = st.session_state["last_result"]
-        sns_text = f"【クソおみくじ】 {lr['fortune']} / {lr['tip'] or 'アドバイスなし'} （クソ度 {lr['score']})"
+        sns_text = f"【おみくじ】 {lr['fortune']} / {lr['tip'] or 'アドバイスなし'} （不運度 {lr['score']})"
         st.text_area("コピーして貼るだけ", value=sns_text, height=120)
     else:
         st.info("まずは『おみくじを引く』を押してね。")
