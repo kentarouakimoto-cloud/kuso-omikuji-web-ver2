@@ -1,4 +1,4 @@
-# kuso_omikuji_streamlit.py
+# kuso_omikuji_streamlit.pyああ
 import streamlit as st
 import random
 import time
